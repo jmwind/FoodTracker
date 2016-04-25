@@ -13,6 +13,7 @@
 		D220D9781CCE8EA60064AD67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D220D9771CCE8EA60064AD67 /* Assets.xcassets */; };
 		D220D97B1CCE8EA60064AD67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D220D9791CCE8EA60064AD67 /* LaunchScreen.storyboard */; };
 		D220D9861CCE8EA60064AD67 /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220D9851CCE8EA60064AD67 /* FoodTrackerTests.swift */; };
+		D220D9911CCEBCE20064AD67 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D220D9901CCEBCE20064AD67 /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D220D9811CCE8EA60064AD67 /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D220D9851CCE8EA60064AD67 /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		D220D9871CCE8EA60064AD67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D220D9901CCEBCE20064AD67 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				D220D9701CCE8EA60064AD67 /* AppDelegate.swift */,
 				D220D9721CCE8EA60064AD67 /* ViewController.swift */,
 				D220D9741CCE8EA60064AD67 /* Main.storyboard */,
+				D220D9901CCEBCE20064AD67 /* RatingControl.swift */,
 				D220D9771CCE8EA60064AD67 /* Assets.xcassets */,
 				D220D9791CCE8EA60064AD67 /* LaunchScreen.storyboard */,
 				D220D97C1CCE8EA60064AD67 /* Info.plist */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D220D9731CCE8EA60064AD67 /* ViewController.swift in Sources */,
+				D220D9911CCEBCE20064AD67 /* RatingControl.swift in Sources */,
 				D220D9711CCE8EA60064AD67 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
