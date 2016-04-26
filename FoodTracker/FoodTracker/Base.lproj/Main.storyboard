@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxG-7X-wdC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="keg-0i-EhY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -150,6 +150,33 @@
             </objects>
             <point key="canvasLocation" x="1423" y="1314"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="KOH-fC-UWm">
+            <objects>
+                <viewController id="keg-0i-EhY" customClass="SplashViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S0h-m2-EnZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zbr-0d-mgy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fNU-3r-q6b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-pQ-GIf">
+                                <rect key="frame" x="205" y="186" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="jxG-7X-wdC" kind="show" identifier="showApp" id="aWx-i3-1Ot"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogh-eC-0hL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-452" y="508"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tqf-1k-lFM">
             <objects>
@@ -166,7 +193,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MZ-xJ-jod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="478"/>
+            <point key="canvasLocation" x="263" y="505"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GTn-xM-Hmp">
@@ -191,6 +218,6 @@
         <image name="defaultPhoto" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lhb-yk-aW9"/>
+        <segue reference="KK8-or-rhz"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,7 +13,27 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.redColor()
+        
+        // Show the home screen after a bit. Calls the show() function.
+        NSTimer.scheduledTimerWithTimeInterval(
+            2.5, target: self, selector: #selector(SplashViewController.show), userInfo: nil, repeats: false
+        )
+    }
+    
+    /*
+     * Gets rid of the status bar
+     */
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    /*
+     * Shows the app's main home screen.
+     * Gets called by the timer in viewDidLoad()
+     */
+    func show() {
+        self.performSegueWithIdentifier("showApp", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
