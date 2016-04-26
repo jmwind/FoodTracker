@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MealViewController.swift
 //  FoodTracker
 //
 //  Created by Jean-Michel Lemieux on 2016-04-25.
@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var meal: Meal?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         nameTextField.delegate = self
     }
@@ -23,10 +27,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func setDefaultLabelText(sender: AnyObject) {
-        //mealNameLabel.text = "Default"
-    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -34,9 +34,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        mealNameLabel.text = textField.text
+        
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            let name = nameTextField.text ?? ""
+            let photo = photoImageView.image
+            let rating = ratingControl.rating
+            meal = Meal(name: name, photo: photo, rating: rating)
+        }
+    }
     
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
         nameTextField.resignFirstResponder()

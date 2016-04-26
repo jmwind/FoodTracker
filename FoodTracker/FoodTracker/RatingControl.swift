@@ -10,7 +10,11 @@ import UIKit
 
 class RatingControl: UIView {
 
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
     var ratingButtons = [UIButton]()
     
     let spacing = 5
@@ -18,9 +22,15 @@ class RatingControl: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        let filledStarImage = UIImage(named: "filledStar")
+        let emptyStarImage = UIImage(named: "emptyStar")
+        
         for _ in 0..<starCount {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-            button.backgroundColor = UIColor.redColor()
+            button.setImage(emptyStarImage, forState: .Normal)
+            button.setImage(filledStarImage, forState: .Selected)
+            button.setImage(filledStarImage, forState: [.Highlighted, .Selected])
+            button.adjustsImageWhenHighlighted = false
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(_:)), forControlEvents: .TouchDown)
             ratingButtons += [button]
             addSubview(button)
@@ -37,6 +47,7 @@ class RatingControl: UIView {
             buttonFrame.origin.x = CGFloat(index * (buttonSize + 5))
             button.frame = buttonFrame
         }
+        updateButtonSelectionStates()
     }
     
     override func intrinsicContentSize() -> CGSize {
@@ -46,8 +57,8 @@ class RatingControl: UIView {
     }
     
     func ratingButtonTapped(button: UIButton) {
-        print("Button pressed 👍")
-        
+        rating = ratingButtons.indexOf(button)! + 1
+        updateButtonSelectionStates()
         
         UIView.animateWithDuration(2.0,
             delay: 0,
@@ -55,14 +66,29 @@ class RatingControl: UIView {
             initialSpringVelocity: 2.0,
             options: UIViewAnimationOptions.AllowUserInteraction,
             animations: {
-                    button.transform = CGAffineTransformMakeScale(0.825, 0.825)
+                self.bounce(true)
             },
             //completion: nil
             completion: { finish in
-                    button.transform = CGAffineTransformIdentity
-                
+                self.bounce(false)
             }
         )
+    }
+    
+    func updateButtonSelectionStates() {
+        for (index, button) in ratingButtons.enumerate() {
+            // If the index of a button is less than the rating, that button should be selected.
+            button.selected = index < rating
+        }
+    }
+    
+    func bounce(state: Bool) {
+        for (index, _) in ratingButtons.enumerate() {
+            // If the index of a button is less than the rating, that button should be selected.
+            if(index < rating) {
+                ratingButtons[index].transform = state ? CGAffineTransformMakeScale(0.825, 0.825) : CGAffineTransformIdentity
+            }
+        }
     }
     
     /*
