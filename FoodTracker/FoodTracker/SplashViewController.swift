@@ -10,14 +10,31 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
+    @IBOutlet weak var splashImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.redColor()
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.splashImageView.image = UIImage(named: "splash")!
         
         // Show the home screen after a bit. Calls the show() function.
         NSTimer.scheduledTimerWithTimeInterval(
-            2.5, target: self, selector: #selector(SplashViewController.show), userInfo: nil, repeats: false
+            3, target: self, selector: #selector(SplashViewController.show), userInfo: nil, repeats: false
+        )
+        
+        UIView.animateWithDuration(
+                            3,
+                            delay: 0,
+                            usingSpringWithDamping: 0.2,
+                            initialSpringVelocity: 15.0,
+                            options: UIViewAnimationOptions.AllowUserInteraction,
+            animations: {
+                            self.splashImageView.transform = CGAffineTransformMakeScale(2.0, 2.0)
+                        },
+            completion: { finish in
+                            //self.splashImageView.transform = CGAffineTransformMakeScale(10.0, 10.0)
+                        }
         )
     }
     
